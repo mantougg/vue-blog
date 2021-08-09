@@ -18,11 +18,15 @@ public class Result implements Serializable {
     private Object data;
 
     public static Result succ(Object data) {
-        return info(400, "操作成功", data);
+        return info(200, "操作成功", data);
     }
 
     public static Result fail(String msg) {
         return info(400, msg, null);
+    }
+
+    public static Result fail(int code, String msg, Object data) {
+        return info(code, msg, data);
     }
 
     public static Result fail(String msg, Object data) {

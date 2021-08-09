@@ -88,8 +88,8 @@ public class ShiroConfig {
         return shiroFilter;
     }
 
-    @Bean
-    JwtFilter jwtFilter() {
-        return new JwtFilter();
-    }
+//    @Bean
+//    JwtFilter jwtFilter() {
+//        return new JwtFilter();
+//    }
 }
