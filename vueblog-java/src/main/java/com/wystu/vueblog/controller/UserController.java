@@ -6,7 +6,10 @@ import com.wystu.vueblog.entity.User;
 import com.wystu.vueblog.service.UserService;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +33,11 @@ public class UserController {
     @GetMapping("/index")
     public Result index() {
         User user = userService.getById(1L);
+        return Result.succ(user);
+    }
+
+    @PostMapping("/save")
+    public Result save(@Validated @RequestBody User user) {
         return Result.succ(user);
     }
 
