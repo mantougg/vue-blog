@@ -44,4 +44,11 @@ public class GlobalExceptionHandler {
         ObjectError objectError = bindingResult.getAllErrors().stream().findFirst().get();
         return Result.fail(objectError.getDefaultMessage());
     }
+
+    @ResponseStatus
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    public Result hanler(IllegalArgumentException i) {
+        log.error("Assert异常：-------------{}", i);
+        return Result.fail(i.getMessage());
+    }
 }
